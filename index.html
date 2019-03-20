@@ -20,66 +20,67 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body ng-app="app-angular">
-        
-        <header>
-            <ul id="slide-out" class="sidenav sidenav-fixed"><!-- Início Menu Lateral -->
-                <li class="usuario">
-                    <img class="circle responsive-img" src="img/profile.jpg">
-                    <span class="black-text name">John Doe</span>
-                </li>
-                <div class="divider"></div>
-                <li>
-                    <a class="subheader">Pessoal</a>
-                </li>
-                <li>
-                    <a href="index.html"><i class="fas fa-home"></i>Página Inicial</a>
-                </li>
-                <li>
-                    <a href="#!"><i class="fas fa-address-card"></i>Dados Pessoais</a>
-                </li>
-                <li>
+
+        <div class="row" ng-controller="Main" >
+            <div class="col s1 m2 xl2 ">
+                <ul id="slide-out" class="sidenav sidenav-fixed"><!-- Início Menu Lateral -->
+                    <li class="usuario">
+                        <img class="circle responsive-img" src="img/profile.jpg">
+                        <span class="black-text name">John Doe</span>
+                    </li>
                     <div class="divider"></div>
-                </li>
-                <li>
-                    <a class="subheader">Administrativo</a>
-                </li>
-                <li>
-                    <a class="waves-effect" href="views/funcionario.html"><i class="fas fa-user"></i>Funcionario</a>
-                </li>
-                <li>
-                    <a class="waves-effect" href="#!"><i class="fas fa-procedures"></i>Paciente</a>
-                </li>
-                <li>
-                    <a class="waves-effect" href="#!"><i class="fas fa-user-md"></i>Consultas</a>
-                </li>
-            </ul><!-- Fim Menu Lateral -->
-            
-        </header>
-
-        <section>
-
-            <div class="row" >
-                <div class="col s1 m2 xl4 "></div>
-                <div class="col s10 m8 xl6" style="background-color: aliceblue;">
-                
-                asdfljahsdç ofahcsçdofhansdog
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                </div>
-                <div class="col s1 m2 xl2"></div>
+                    <li>
+                        <a class="subheader">Pessoal</a>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fas fa-home"></i>Página Inicial</a>
+                    </li>
+                    <li>
+                        <a href="#!"><i class="fas fa-address-card"></i>Dados Pessoais</a>
+                    </li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li>
+                        <a class="subheader">Administrativo</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="views/funcionario.html"><i class="fas fa-user"></i>Funcionario</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#!"><i class="fas fa-procedures"></i>Paciente</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#!"><i class="fas fa-user-md"></i>Consultas</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#!"><i class="fas fa-notes-medical"></i>Prontuário</a>
+                    </li>
+                </ul><!-- Fim Menu Lateral -->
             </div>
+            <div class="col s10 m9 xl9" style="background-color: #ffffff;">
+                <table>
+                    <thead>
+                        <tr>
+                                <th>Id</th>
+                                <th>Paciente</th>
+                                <th>Início</th>
+                                <th>Psicólogo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="consulta in agenda">
+                                <td>{{consulta.id}}</td>
+                                <td>{{consulta.paciente}}</td>
+                                <td>{{consulta.inicio}}</td>
+                                <td>{{consulta.psicologo}}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+            <div class="col s1 m2 xl1"></div>
+        </div>
 
-        </section>
-
-        
-        
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -94,6 +95,7 @@
 
         <!-- Módulo e Controllers Angular -->
         <script type="text/javascript" src="js/src/module.main.js"></script>
+        <script type="text/javascript" src="js/src/controller.main.js"></script>
             
     </body>
 </html>
