@@ -21,7 +21,7 @@
     </head>
     <body ng-app="app-angular">
 
-        <div class="row" ng-controller="Main" >
+        <div class="row">
             <div class="col s1 m2 xl2 ">
                 <ul id="slide-out" class="sidenav sidenav-fixed"><!-- Início Menu Lateral -->
                     <li class="usuario">
@@ -33,10 +33,10 @@
                         <a class="subheader">Pessoal</a>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fas fa-home"></i>Página Inicial</a>
+                        <a href="#/"><i class="fas fa-home"></i>Página Inicial</a>
                     </li>
                     <li>
-                        <a href="#!"><i class="fas fa-address-card"></i>Dados Pessoais</a>
+                        <a href="#/pessoal"><i class="fas fa-address-card"></i>Dados Pessoais</a>
                     </li>
                     <li>
                         <div class="divider"></div>
@@ -58,26 +58,8 @@
                     </li>
                 </ul><!-- Fim Menu Lateral -->
             </div>
-            <div class="col s10 m9 xl9" style="background-color: #ffffff;">
-                <table>
-                    <thead>
-                        <tr>
-                                <th>Id</th>
-                                <th>Paciente</th>
-                                <th>Início</th>
-                                <th>Psicólogo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="consulta in agenda">
-                                <td>{{consulta.id}}</td>
-                                <td>{{consulta.paciente}}</td>
-                                <td>{{consulta.inicio}}</td>
-                                <td>{{consulta.psicologo}}</td>
-                        </tr>
-                    </tbody>
-                    </table>
-            </div>
+            <div class="col s10 m9 xl9 conteudo"><ng-view></ng-view></div>
+                
             <div class="col s1 m2 xl1"></div>
         </div>
 
@@ -88,6 +70,7 @@
         <!-- Bibliotecas JavaScript -->
         <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
         <script type="text/javascript" src="js/lib/materialize.min.js"></script>
 
         <!-- Ajustes JavaScript -->
@@ -95,7 +78,12 @@
 
         <!-- Módulo e Controllers Angular -->
         <script type="text/javascript" src="js/src/module.main.js"></script>
+        <script type="text/javascript" src="js/src/rotas.js"></script>
         <script type="text/javascript" src="js/src/controller.main.js"></script>
+        <script type="text/javascript" src="js/src/controller.funcionario.js"></script>
+        <script type="text/javascript" src="js/src/controller.paciente.js"></script>
+        <script type="text/javascript" src="js/src/controller.consultas.js"></script>
+        <script type="text/javascript" src="js/src/controller.prontuario.js"></script>
             
     </body>
 </html>
