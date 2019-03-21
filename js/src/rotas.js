@@ -8,12 +8,12 @@ app.config(function($routeProvider){
     $routeProvider
     // Página Inicial
     .when("/", {
-        templateUrl : '../views/main.html',
+        templateUrl : 'views/main.html',
         controller  : 'Main'
     })
     // Dados Pessoais
     .when("/pessoal", {
-        templateUrl : '../views/pessoal.html',
+        templateUrl : 'views/pessoal.html',
         controller  : 'FuncionarioCtrl'
     })
     // Funcionario

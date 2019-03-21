@@ -30,7 +30,6 @@ app.controller('Main', function($scope, $http){
           }).then(function mySuccess(response) {
             $scope.agenda = response.data;
           }, function myError(response) {
-                        
             $scope.agenda = response.statusText;
           });
     }
