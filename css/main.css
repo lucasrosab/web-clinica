@@ -11,3 +11,12 @@ body{
     background-color: #007187;
     margin-top: 1em 
 }
+
+.opcoes{
+    text-align: right;
+}
+
+.prontuario{
+    padding: 5em;
+    padding-top: 3em;
+}

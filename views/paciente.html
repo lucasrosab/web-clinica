@@ -1,1 +1,35 @@
-hsdafhklçasdfhklçasdfhklasdfhklçasdf
+<h2>Pacientes</h2>
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+<div class="opcoes" ng-include="'views/modal.paciente.html'">
+    
+    <button class="btn-floating btn-large waves-effect waves-light red">Cadastrar</button>
+    <button>Editar</button>
+    <button>Pesquisar</button>
+</div>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Opções</th>
+    </thead>
+    <tbody ng-repeat="pacientes in paciente">
+        <td>{{pacientes.id}}</td>
+        <td>{{pacientes.paciente}}</td>
+        <td>{{pacientes.cpf}}</td>
+    </tbody>
+</table>

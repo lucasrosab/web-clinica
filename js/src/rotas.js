@@ -36,4 +36,4 @@ app.config(function($routeProvider){
         templateUrl : 'views/prontuario.html',
         controller  : 'ProntuarioCtrl'
     })
-});
+ });
