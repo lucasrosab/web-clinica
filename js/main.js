@@ -2,3 +2,4 @@
 
 
 //Inicialização do SideNav do Materializer
+M.AutoInit();

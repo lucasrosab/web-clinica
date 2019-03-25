@@ -1,5 +1,10 @@
-app.controller('PacienteCtrl', function($rootScope, $http){
-    $rootScope.paciente = [
+app.controller('PacienteCtrl', function($scope, $http){
+    
+    $('select').formSelect();
+    
+    $scope.paciente = {};
+
+    $scope.pacientes = [
         {
             id: 0,
             paciente: 'Lucas',
@@ -17,17 +22,23 @@ app.controller('PacienteCtrl', function($rootScope, $http){
         }
     ];
 
-
+    $scope.paciente = {}
     
+
+    $scope.cadastrarPaciente = function(paciente){
+        console.log($scope.paciente);
+    }
+
     function exibirPaciente(){
         $http({
             method : "GET",
             url : "welcome.htm"
           }).then(function mySuccess(response) {
-            $rootScope.paciente = response.data;
+            $scope.paciente = response.data;
           }, function myError(response) {
             $scope.agenda = response.statusText;
           });
     }
 
+    
 })
