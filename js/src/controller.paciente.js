@@ -26,7 +26,8 @@ app.controller('PacienteCtrl', function($scope, $http){
     
 
     $scope.cadastrarPaciente = function(paciente){
-        console.log($scope.paciente);
+        console.log(paciente);
+        $scope.paciente = {}
     }
 
     function exibirPaciente(){
