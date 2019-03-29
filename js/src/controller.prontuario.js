@@ -1,5 +1,7 @@
 app.controller('ProntuarioCtrl', function(){
 
+    M.AutoInit();
+
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd',
         i18n:{

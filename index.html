@@ -51,12 +51,12 @@
                         <a class="waves-effect" href="#!/paciente"><i class="fas fa-procedures"></i>Paciente</a>
                     </li>
                     <li>
-                        <a class="waves-effect" href="#!/consultas"><i class="fas fa-user-md"></i>Consultas</a>
-                    </li>
-                    <li>
                         <a class="waves-effect" href="#!/prontuario"><i class="fas fa-notes-medical"></i>Prontuário</a>
                     </li>
                 </ul><!-- Fim Menu Lateral -->
+                <div class="col s1">
+                    <button class="waves-effect waves-light btn sidenav-trigger" data-target="slide-out"><i class="fas fa-grip-lines"></i></button>
+                </div>
             </div>
             <div class="col s10 m9 xl9 conteudo"><ng-view></ng-view></div>
                 
@@ -69,6 +69,7 @@
 
         <!-- Bibliotecas JavaScript -->
         <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.mask.min.js"></script>
         <script type="text/javascript" src="js/lib/materialize.min.js"></script>
         <script type="text/javascript" src="js/lib/angular.min.js"></script>
         <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
@@ -83,7 +84,6 @@
         <script type="text/javascript" src="js/src/controller.main.js"></script>
         <script type="text/javascript" src="js/src/controller.funcionario.js"></script>
         <script type="text/javascript" src="js/src/controller.paciente.js"></script>
-        <script type="text/javascript" src="js/src/controller.consultas.js"></script>
         <script type="text/javascript" src="js/src/controller.prontuario.js"></script>
             
     </body>

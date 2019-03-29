@@ -26,11 +26,6 @@ app.config(function($routeProvider){
         templateUrl : 'views/paciente.html',
         controller  : 'PacienteCtrl'
     })
-    // Consultas
-    .when("/consultas", {
-        templateUrl : 'views/consultas.html',
-        controller  : 'ConsultasCtrl'
-    })
     // Prontuário
     .when("/prontuario", {
         templateUrl : 'views/prontuario.html',

@@ -1,5 +1,5 @@
 .usuario{
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
 }
 
@@ -17,6 +17,14 @@ body{
 }
 
 .formulario{
-    padding: 5em;
+    padding: 2%;
+    padding-top: 3%;
+}
+
+.listagem{
     padding-top: 3em;
+}
+
+.direita{
+    text-align: right;
 }
