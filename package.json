@@ -1,0 +1,39 @@
+{
+  "name": "web-clinica",
+  "version": "1.0.0",
+  "description": "Sistema de cadastro de pacientes e funcionarios de uma clinica psicologica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "angularjs",
+    "postgresql",
+    "materializecss",
+    "jquery",
+    "express",
+    "ejs",
+    "body-parser",
+    "html",
+    "css",
+    "es6",
+    "jquery-mask"
+  ],
+  "author": "Lucas Rosa e Gutemberg Dantas",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-route": "^1.7.8",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "materialize-css": "^1.0.0-rc.2",
+    "pg": "^7.9.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1"
+  }
+}

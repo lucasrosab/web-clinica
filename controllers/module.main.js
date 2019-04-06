@@ -4,5 +4,4 @@
  * É realizado a injeção do ngRoute, que serve para o uso de rotas e
  * desenvolvimento da aplicação com a arquitetura SPA (Single Page Applications) 
  */
-
-var app = angular.module('app-angular', ['ngRoute']);
+var app = angular.module('app', ['ngRoute']);

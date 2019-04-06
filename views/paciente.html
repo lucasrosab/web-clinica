@@ -7,81 +7,78 @@
       <h6>Dados Pessoais</h6>
     </div>
     <div class="input-field col s2">
-      <input id="codigo" type="text" class="validate" ng-model="paciente.codigo">
+      <input id="codigo" type="text" class="validate" ng-model="paciente.codigo"/>
       <label for="codigo">Codigo</label>
     </div>
     <div class="input-field col s7">
-      <input id="nome" type="text" class="validate" ng-model="paciente.nome">
+      <input id="nome" type="text" class="validate" ng-model="paciente.nome"/>
       <label for="nome">Nome</label>
     </div>
     <div class="input-field col s3">
-      <input id="sobrenome" type="text" class="validate" ng-model="paciente.sobrenome">
+      <input id="sobrenome" type="text" class="validate" ng-model="paciente.sobrenome"/>
       <label for="sobrenome">Sobrenome</label>
     </div>
     <div class="input-field col s3">
-      <input id="dtnasc" type="text" class="validate" ng-model="paciente.dtnasc">
+      <input id="dtnasc" type="text" class="validate" ng-model="paciente.dtnasc"/>
       <label for="dtnasc">Data de Nascimento</label>
     </div>
     <div class="input-field col s3">
-      <input id="cpf" type="text" class="validate" ng-model="paciente.cpf">
+      <input id="cpf" type="text" class="validate" ng-model="paciente.cpf"/>
       <label for="cpf">CPF</label>
     </div>
     <div class="input-field col s3">
-      <input id="plano" type="text" class="validate" ng-model="paciente.plano">
+      <input id="plano" type="text" class="validate" ng-model="paciente.plano"/>
       <label for="plano">Plano de Saude</label>
     </div>
-    <!--
-    <div class="input-field col s3">
-      <select ng-model="paciente.sexo">
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-      </select>
-      <label>Sexo</label>
-    </div>-->
     <div class="input-field col s9">
-      <input id="endereco" type="text" class="validate" ng-model="paciente.endereco">
+      <input id="endereco" type="text" class="validate" ng-model="paciente.endereco"/>
       <label for="endereco">Endereço</label>
     </div>
     <div class="input-field col s2">
-      <input id="cidade" type="text" class="validate" ng-model="paciente.cidade">
+      <input id="cidade" type="text" class="validate" ng-model="paciente.cidade"/>
       <label for="cidade">Cidade</label>
     </div>
     <div class="input-field col s1">
-      <input id="uf" type="text" class="validate" ng-model="paciente.uf">
+      <input id="uf" type="text" class="validate" ng-model="paciente.uf"/>
       <label for="uf">UF</label>
     </div>
     <div class="col s12">
       <h6>Contato</h6>
     </div>
     <div class="input-field col s3">
-      <input id="telefone" type="text" class="validate" ng-model="paciente.telefone">
+      <input id="telefone" type="text" class="validate" ng-model="paciente.telefone"/>
       <label for="telefone">Telefone</label>
     </div>
     <div class="input-field col s9">
-      <input id="email" type="email" class="validate" ng-model="paciente.email">
+      <input id="email" type="email" class="validate" ng-model="paciente.email"/>
       <label for="email">Email</label>
     </div>
     <div class="input-field col s12 direita">
-      <button class="btn waves-effect waves-light" type="submit" ng-click="excluirPaciente()">Excluir</button>
-      <button class="btn waves-effect waves-light" type="submit" ng-click="listarPaciente()">Listar</button>
-      <button class="btn waves-effect waves-light" type="submit" ng-click="editarPaciente()">Editar</button>
+      <button class="btn waves-effect waves-light" type="submit" ng-click="estado()" id="botao">Listar</button>
       <button class="btn waves-effect waves-light" type="submit" ng-click="cadastrarPaciente()">Salvar</button>
     </div>
   </form>
-  <div class="col s12">
-    <table id="pacientes">
+  <div class="col s12" id="pacientes">
+    <table>
       <thead>
-        <th>Id</th>
+        <th>Código</th>
         <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Data de Nascimento</th>
         <th>CPF</th>
         <th>Opções</th>
       </thead>  
       <tbody>
         <tr ng-repeat = "paciente in pacientes">
-          <td>{{paciente.id}}</td>
+          <td>{{paciente.codigo}}</td>
           <td>{{paciente.nome}}</td>
+          <td>{{paciente.sobrenome}}</td>
+          <td>{{paciente.dtnasc}}</td>
           <td>{{paciente.cpf}}</td>
-          <td></td>
+          <td>
+            <button class="btn waves-effect waves-light" type="submit" ng-click="editarPaciente()">Editar</button>
+            <button class="btn waves-effect waves-light" type="submit" ng-click="excluirPaciente()">Excluir</button>
+          </td>
         </tr>
       </tbody>
     </table>

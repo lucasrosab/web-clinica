@@ -28,3 +28,11 @@ body{
 .direita{
     text-align: right;
 }
+
+#pacientes {
+    display: none;
+}
+
+#funcionarios{
+    display: none;
+}
