@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-    <!--[if gt IE 8]><!--><!--<![endif]--> 
-    <html class="pr-br"> 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+    <html ng-app="app" lang="pt-br"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Web Clínica</title>
+        
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Clinica Web">
         <meta name="author" content="Lucas Rosa Barbosa - Gutemberg Dantas de Alencar">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Bibliotecas CSS -->
-        <link rel="stylesheet" href="../css/lib/materialize.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        
-        <!-- Estilos CSS -->
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body ng-app="app-angular">
 
+        <!-- Bibliotecas CSS -->
+        <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
+        <!-- Estilos CSS -->
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+
+        LOGIN
 
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
         <!-- Bibliotecas JavaScript -->
-        <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="js/lib/materialize.min.js"></script>
-        <script type="text/javascript" src="js/lib/angular.min.js"></script>
-        <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
-        
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+        <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/angular-route/angular-route.min.js"></script>
 
         <!-- Ajustes JavaScript -->
-        <script type="text/javascript" src="js/main.js"></script>
+        <script src="main.js"></script>
 
         <!-- Módulo e Controllers Angular -->
-        <script type="text/javascript" src="js/src/module.main.js"></script>
-        <script type="text/javascript" src="js/src/rotas.js"></script>
-        <script type="text/javascript" src="js/src/controller.main.js"></script>
-        <script type="text/javascript" src="js/src/controller.funcionario.js"></script>
-        <script type="text/javascript" src="js/src/controller.paciente.js"></script>
-        <script type="text/javascript" src="js/src/controller.prontuario.js"></script>
-            
+        <script src="controllers/module.main.js"></script>
+        <script src="controllers/rotas.js"></script>
+        <script src="controllers/controller.funcionario.js"></script>
+        <script src="controllers/controller.paciente.js"></script>
+        <script src="controllers/controller.prontuario.js"></script>
     </body>
 </html>
