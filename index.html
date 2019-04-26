@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class="row">
-            <div class="col s1 m2 xl2 ">
+            <div class="col s1 m2 xl3 ">
                 <ul id="slide-out" class="sidenav sidenav-fixed"><!-- Início Menu Lateral -->
                     <li class="usuario">
                         <img class="circle responsive-img" src="img/profile.jpg">
@@ -55,12 +55,11 @@
                         <a class="waves-effect" href="#!/prontuario"><i class="fas fa-notes-medical"></i>Prontuário</a>
                     </li>
                 </ul><!-- Fim Menu Lateral -->
-                <div class="col s1">
+                <div class="col s1 m1 xl8">
                     <button class="waves-effect waves-light btn sidenav-trigger" data-target="slide-out"><i class="fas fa-grip-lines"></i></button>
                 </div>
             </div>
-            <div class="col s10 m9 xl9 conteudo"><ng-view></ng-view></div>      
-            <div class="col s1 m2 xl1"></div>
+            <div class="col s11 m9 xl8 conteudo"><ng-view></ng-view></div>      
         </div>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

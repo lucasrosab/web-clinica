@@ -1,28 +1,16 @@
 const express = require('express')
-const app = express()
-const path = require('path')
-const route = express.Router()
-__dirname = path.resolve()
+const bodyParse = require('body-parser')
 
-var bodyParse = require('body-parser')
+const app = express()
+
+/*const path = require('path')
+const route = express.Router()
+__dirname = path.resolve()*/
+
+app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({extented:false}))
 
-app.engine('html', require('ejs'). renderFile)
-
-app.get('/', (req,res) =>{
-    res.render(__dirname+'/index.html')
-})
-
-
-
-
-
-
-
-
-
-
-
+//app.engine('html', require('ejs'). renderFile)
 
 
 
