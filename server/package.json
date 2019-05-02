@@ -1,0 +1,18 @@
+{
+  "name": "clinica",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gutemberg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
