@@ -25,15 +25,16 @@
   "dependencies": {
     "angular": "^1.7.8",
     "angular-route": "^1.7.8",
-    "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
     "jquery": "^3.3.1",
     "jquery-mask-plugin": "^1.14.15",
-    "materialize-css": "^1.0.0-rc.2",
-    "pg": "^7.9.0"
+    "materialize-css": "^1.0.0-rc.2"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1"
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
   }
 }
