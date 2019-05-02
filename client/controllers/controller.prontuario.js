@@ -19,6 +19,7 @@ app.controller('ProntuarioCtrl', function($scope){
 
     $scope.cadastrarProntuario = function () {
         $scope.prontuarioCadastrado = false;
+        
         if($scope.prontuario.nome == null || $scope.prontuario.nome == "" ){
             M.toast({html: 'Insira o Nome do Paciente', classes: 'rounded red'})
         } else if($scope.prontuario.codigo == null || $scope.prontuario.codigo == ""){
@@ -60,8 +61,4 @@ app.controller('ProntuarioCtrl', function($scope){
             $scope.prontuario = response.statusText;
         });
     }
-
-
-
-
 })

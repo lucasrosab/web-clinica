@@ -1,15 +1,18 @@
 -- WEB CLINICA
-CREATE DATABASE clinica;
+-- CREATE DATABASE clinica;
 
 DROP SCHEMA IF EXISTS webclinica CASCADE;
 CREATE SCHEMA webclinica;
+
+SET search_path TO webclinica,public;
+SET SCHEMA 'webclinica';
 
 -- PESSOA
 DROP SEQUENCE IF EXISTS webclinica.webcsq001_pessoa CASCADE;
 CREATE SEQUENCE webclinica.webcsq001_pessoa INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb001_pessoa (
-        cod_pessoa BIGSERIAL NOT NULL,
+        cod_pessoa BIGINT DEFAULT nextval('webclinica.webcsq001_pessoa'::regclass) NOT NULL,
         no_pessoa CHARACTER VARYING(200) NOT NULL,
         rg_pessoa CHARACTER VARYING(50),
         cpf_pessoa CHARACTER VARYING(15) NOT NULL,
@@ -25,14 +28,16 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq002_tipo_endereco CASCADE;
 CREATE SEQUENCE webclinica.webcsq002_tipo_endereco INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb002_tipo_endereco (
-	cod_tipo_endereco SERIAL NOT NULL,
+	cod_tipo_endereco INT DEFAULT nextval('webclinica.webcsq002_tipo_endereco'::regclass) NOT NULL,
 	no_tipo_endereco CHARACTER VARYING(20) NOT NULL,
 	CONSTRAINT pk_tb002_tipo_endereco PRIMARY KEY (cod_tipo_endereco)
 );
 
+INSERT INTO webclinica.tb002_tipo_endereco (no_tipo_endereco) VALUES ('Casa'), ('Trabalho'), ('Faculdade'), ('Outro');
+
 CREATE TABLE IF NOT EXISTS webclinica.tb003_endereco (
         cod_pessoa BIGINT NOT NULL,
-		cod_tipo_endereco INT NOT NULL,
+		cod_tipo_endereco INT NULL,
         uf CHARACTER(2) NOT NULL,
         cidade CHARACTER(50) NOT NULL,
         bairro CHARACTER VARYING(80),
@@ -48,14 +53,16 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq004_tipo_contato CASCADE;
 CREATE SEQUENCE webclinica.webcsq004_tipo_contato INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb004_tipo_contato (
-	cod_tipo_contato SERIAL NOT NULL,
+	cod_tipo_contato INT DEFAULT nextval('webclinica.webcsq004_tipo_contato'::regclass) NOT NULL,
 	no_tipo_contato CHARACTER VARYING(20) NOT NULL,
 	CONSTRAINT pk_tb004_tipo_contato PRIMARY KEY (cod_tipo_contato)
 );
 
+INSERT INTO webclinica.tb004_tipo_contato (no_tipo_contato) VALUES ('E-mail'), ('Telefone'), ('Endereço'), ('Bairro'), ('Rua'), ('Outro');
+
 CREATE TABLE IF NOT EXISTS webclinica.tb005_contato (
 	cod_pessoa BIGINT NOT NULL,
-	cod_tipo_contato INT NOT NULL,
+	cod_tipo_contato INT NULL,
 	de_contato CHARACTER VARYING(80),
 	CONSTRAINT pk_tb005_contato PRIMARY KEY(cod_pessoa),
     CONSTRAINT fk_tb005_contato_reference_tb001_pessoa FOREIGN KEY (cod_pessoa) REFERENCES "tb001_pessoa" ("cod_pessoa") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -67,7 +74,7 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq006_plano_saude CASCADE;
 CREATE SEQUENCE webclinica.webcsq006_plano_saude INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb006_plano_saude (
-	cod_plano_saude SERIAL NOT NULL,
+	cod_plano_saude INT DEFAULT nextval('webclinica.webcsq006_plano_saude'::regclass) NOT NULL,
 	cod_ans CHARACTER VARYING(100),
 	no_plano CHARACTER VARYING(255) NOT NULL,
 	de_plano CHARACTER VARYING(255) NOT NULL,
@@ -78,7 +85,7 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq007_paciente CASCADE;
 CREATE SEQUENCE webclinica.webcsq007_paciente INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb007_paciente (
-	cod_paciente BIGSERIAL NOT NULL,
+	cod_paciente BIGINT DEFAULT nextval('webclinica.webcsq007_paciente'::regclass) NOT NULL,
 	cod_pessoa BIGINT NOT NULL,
 	cod_plano_saude INT DEFAULT NULL,
 	de_paciente CHARACTER VARYING(255),
@@ -92,7 +99,7 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq008_medico CASCADE;
 CREATE SEQUENCE webclinica.webcsq008_medico INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb008_medico (
-	cod_medico SERIAL NOT NULL,
+	cod_medico INT DEFAULT nextval('webclinica.webcsq008_medico'::regclass) NOT NULL,
 	cod_pessoa BIGINT NOT NULL,
 	crm CHARACTER VARYING(10) NOT NULL,
 	especialidades CHARACTER VARYING(100) NOT NULL,
@@ -107,7 +114,7 @@ DROP SEQUENCE IF EXISTS webclinica.webcsq009_prontuario CASCADE;
 CREATE SEQUENCE webclinica.webcsq009_prontuario INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1  NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS webclinica.tb009_prontuario (
-	cod_prontuario BIGSERIAL NOT NULL,
+	cod_prontuario BIGINT DEFAULT nextval('webclinica.webcsq009_prontuario'::regclass) NOT NULL,
 	cod_paciente BIGINT NOT NULL,
 	cod_medico INT DEFAULT NULL,
 	dt_atendimento DATE NOT NULL,
