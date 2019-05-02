@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS webclinica.tb003_endereco (
         bairro CHARACTER VARYING(80),
         endereco CHARACTER VARYING(120),
         numero CHARACTER(5),
-        CONSTRAINT pk_tb003_endereco PRIMARY KEY(cod_pessoa),
+        -- CONSTRAINT pk_tb003_endereco PRIMARY KEY(cod_pessoa, cod_tipo_endereco),
         CONSTRAINT fk_tb003_endereco_reference_tb001_pessoa FOREIGN KEY (cod_pessoa) REFERENCES "tb001_pessoa" ("cod_pessoa") ON DELETE CASCADE ON UPDATE CASCADE,
 		CONSTRAINT fk_tb003_endereco_reference_tb002_tipo_endereco FOREIGN KEY (cod_tipo_endereco) REFERENCES "tb002_tipo_endereco" ("cod_tipo_endereco") ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -62,9 +62,9 @@ INSERT INTO webclinica.tb004_tipo_contato (no_tipo_contato) VALUES ('E-mail'), (
 
 CREATE TABLE IF NOT EXISTS webclinica.tb005_contato (
 	cod_pessoa BIGINT NOT NULL,
-	cod_tipo_contato INT NULL,
+	cod_tipo_contato INT,
 	de_contato CHARACTER VARYING(80),
-	CONSTRAINT pk_tb005_contato PRIMARY KEY(cod_pessoa),
+	-- CONSTRAINT pk_tb005_contato PRIMARY KEY(cod_pessoa, cod_tipo_contato),
     CONSTRAINT fk_tb005_contato_reference_tb001_pessoa FOREIGN KEY (cod_pessoa) REFERENCES "tb001_pessoa" ("cod_pessoa") ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT fk_tb005_contato_reference_tb004_tipo_contato FOREIGN KEY (cod_tipo_contato) REFERENCES "tb004_tipo_contato" ("cod_tipo_contato") ON DELETE CASCADE ON UPDATE CASCADE
 );

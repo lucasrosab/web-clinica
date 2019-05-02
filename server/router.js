@@ -2,7 +2,8 @@
 const ROUTES = [
     'common',
     'pacientes',
-    'user'
+    'contato',
+    'endereco'
 ];
 
 // Carrega os recursos de rotas

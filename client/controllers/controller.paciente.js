@@ -9,29 +9,27 @@ app.controller('PacienteCtrl', function($scope, $http){
     $('#telefone').mask('(00) 00000-0000');
 
     $scope.paciente = {};
-    $scope.pacientes = [
-        {
-            codigo: 0,
-            nome: 'Lucas',
-            cpf: '73103811100',
-        },
-        {
-            codigo: 1,
-            nome: 'Bruno',
-            cpf: '73103811100',
-        },
-        {
-            codigo: 2,
-            nome: 'Gutemberg',
-            cpf: '73103811100',
-        }
-    ];
+    $scope.pacientes = [];
     
     $scope.estado = function (){
         var botao = document.getElementById('botao')
         var conteudo = document.getElementById('pacientes').style.display
 
         if(conteudo == 'none'){
+            $http({
+                method : "GET",
+                url : "http://localhost:8000/api/pacientes"
+              }).then(function mySuccess(response) {
+
+                    // VERIFICAR NO CONSOLE A RESPOSTA DO SERVER
+                    console.warn(response.data.result);
+                    $scope.pacientes = response.data.result;
+
+              }, function myError(response) {
+                    $scope.pacientes = [];
+              });
+
+
             document.getElementById('pacientes').style.display = 'block'
             botao.innerHTML = "Ocultar"
         } else{
@@ -43,9 +41,9 @@ app.controller('PacienteCtrl', function($scope, $http){
 
     $scope.cadastrarPaciente = function(){ 
         $scope.pacienteCadastrado = false;     
-        if($scope.paciente.codigo == null || $scope.paciente.codigo == "" ){
-            M.toast({html: 'Insira o Código', classes: 'rounded red'})
-        } else if($scope.paciente.nome == null || $scope.paciente.nome == ""){
+
+        // TROCAR O NOME DOS ATRIBUTOS LÁ NO NG-MODELS DOS INPUTS E AQUI
+        if($scope.paciente.nome == null || $scope.paciente.nome == ""){
             M.toast({html: 'Insira o Nome', classes: 'rounded red'})
         } else if($scope.paciente.sobrenome == null || $scope.paciente.sobrenome == ""){
             M.toast({html: 'Insira o Sobrenome', classes: 'rounded red'})
@@ -67,20 +65,26 @@ app.controller('PacienteCtrl', function($scope, $http){
             M.toast({html: 'Insira o Email', classes: 'rounded red'})
         }else{
             M.toast({html: 'Cadastrado com Sucesso', classes: 'rounded green'})
-            console.log($scope.paciente)
-            $scope.pacientes.push($scope.paciente)
-            $scope.paciente = {}
 
-            /*$http({
-                method : "POST",
-                url : "localhost:8000/paciente",
-                params: 
-            }).then(function mySuccess(response) {
-                $scope.pacienteCadastrado = true;
-            }, function myError(response) {
-                $scope.myWelcome = response.statusText;
-            });*/
-        }   
+            console.log($scope.paciente)
+
+            const n_paciente = $scope.paciente;
+
+            $scope.pacientes.push(n_paciente);
+            $scope.paciente = {}
+            
+            $http.post("http://localhost:8000/api/pacientes", 
+                { "paciente": n_paciente }, 
+                { headers: {'Content-Type': 'application/json'}})
+                .then(function mySuccess(response) {
+
+                    console.warn(response.data.result);
+
+                    $scope.pacienteCadastrado = true;
+                }, function myError(response) {
+                    $scope.myWelcome = response.statusText;
+                });
+        }
 
     }
 
