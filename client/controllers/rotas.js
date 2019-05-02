@@ -11,16 +11,6 @@ app.config(function($routeProvider){
         templateUrl : 'views/main.html',
         controller  : 'Main'
     })
-    // Dados Pessoais
-    .when("/pessoal", {
-        templateUrl : 'views/pessoal.html',
-        controller  : 'FuncionarioCtrl'
-    })
-    // Funcionario
-    .when("/funcionario", {
-        templateUrl : 'views/funcionario.html',
-        controller  : 'FuncionarioCtrl'
-    })
     // Paciente
     .when("/paciente", {
         templateUrl : 'views/paciente.html',

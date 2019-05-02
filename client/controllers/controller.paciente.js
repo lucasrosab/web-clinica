@@ -9,7 +9,6 @@ app.controller('PacienteCtrl', function($scope, $http){
     $('#telefone').mask('(00) 00000-0000');
 
     $scope.paciente = {};
-
     $scope.pacientes = [
         {
             codigo: 0,
@@ -37,12 +36,13 @@ app.controller('PacienteCtrl', function($scope, $http){
             botao.innerHTML = "Ocultar"
         } else{
             document.getElementById('pacientes').style.display = 'none'
-            botao.innerHTML = 'Listar'
+            botao.innerHTML = 'Consultar'
         }
     }
 
 
-    $scope.cadastrarPaciente = function(){      
+    $scope.cadastrarPaciente = function(){ 
+        $scope.pacienteCadastrado = false;     
         if($scope.paciente.codigo == null || $scope.paciente.codigo == "" ){
             M.toast({html: 'Insira o Código', classes: 'rounded red'})
         } else if($scope.paciente.nome == null || $scope.paciente.nome == ""){
@@ -72,9 +72,11 @@ app.controller('PacienteCtrl', function($scope, $http){
             $scope.paciente = {}
 
             /*$http({
-                method : "GET",
-                url : "welcome.htm"
+                method : "POST",
+                url : "localhost:8000/paciente",
+                params: 
             }).then(function mySuccess(response) {
+                $scope.pacienteCadastrado = true;
             }, function myError(response) {
                 $scope.myWelcome = response.statusText;
             });*/
@@ -82,16 +84,19 @@ app.controller('PacienteCtrl', function($scope, $http){
 
     }
 
+
+    // Esta função vai retornar um json e alimentar o $scope.paciente, que será exibido em uma tabela atraves de um Ng-Repeat
     function exibirPaciente(){
         $http({
             method : "GET",
-            url : "welcome.htm"
+            url : "localhost:8000/paciente"
           }).then(function mySuccess(response) {
             $scope.paciente = response.data;
           }, function myError(response) {
-            $scope.agenda = response.statusText;
+            $scope.paciente = response.statusText;
           });
     }
+
 
     
 })

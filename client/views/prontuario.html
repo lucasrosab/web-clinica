@@ -46,23 +46,21 @@
     <div class="col s12">
         <table>
             <thead>
-                <tr>
-                    <th>Cod.</th>
-                    <th>Paciente</th>
-                    <th>CPF</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>sds</td>
-                    <td>sdsf</td>
-                    <td>$0.87</td>
-                    <td>$0.87</td>
-                    <td>$0.87</td>
-                </tr>
-            </tbody>
-        </table>
+                <th>Cod.</th>
+                <th>Paciente</th>
+                <th>CPF</th>
+                <th>Data</th>
+                <th>Hora</th>
+            </thead>  
+                <tbody>
+                    <tr ng-repeat = "prontuarios in prontuario">
+                    <td>{{prontuarios.codigo}}</td>
+                    <td>{{prontuarios.nome}}</td>
+                    <td>{{prontuarios.cpf}}</td>
+                    <td>{{prontuarios.data}}</td>
+                    <td>{{prontuarios.hora}}</td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </div>    
