@@ -7,39 +7,39 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input id="nome" type="text" class="validate" title="Nome"/>
+                <input id="nome" type="text" class="validate" title="Nome" ng-model="prontuario.nome"/>
                 <label for="nome">Nome</label>
             </div>
             <div class="input-field col s6">
-                <input id="codigo" type="text" class="validate"/>
+                <input id="codigo" type="text" class="validate" ng-model="prontuario.codigo"/>
                 <label for="codigo">Código</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" class="validate"/>
+                <input type="text" class="validate" ng-model="prontuario.data"/>
                 <label for="data">Data</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" class="timepicker validate"/>
+                <input type="text" class="timepicker validate" ng-model="prontuario.hora"/>
                 <label for="hora">Hora</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="relatop" class="materialize-textarea"></textarea>
+                <textarea id="relatop" class="materialize-textarea" ng-model="prontuario.relato"></textarea>
                 <label for="relatop">Relato Paciente</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="analise" class="materialize-textarea"></textarea>
+                <textarea id="analise" class="materialize-textarea" ng-model="prontuario.analise"></textarea>
                 <label for="analise">Análise Clínica</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 opcoes">
-                <button class="waves-effect waves-light btn" type="submit">Salvar</button>
+                <button class="waves-effect waves-light btn" type="submit" ng-click="">Salvar</button>
             </div>
         </div>
     </form>
@@ -53,12 +53,12 @@
                 <th>Hora</th>
             </thead>  
                 <tbody>
-                    <tr ng-repeat = "prontuarios in prontuario">
-                    <td>{{prontuarios.codigo}}</td>
-                    <td>{{prontuarios.nome}}</td>
-                    <td>{{prontuarios.cpf}}</td>
-                    <td>{{prontuarios.data}}</td>
-                    <td>{{prontuarios.hora}}</td>
+                    <tr ng-repeat = "pront in prontuarios">
+                    <td>{{pront.codigo}}</td>
+                    <td>{{pront.nome}}</td>
+                    <td>{{pront.cpf}}</td>
+                    <td>{{pront.data}}</td>
+                    <td>{{pront.hora}}</td>
                     </tr>
                 </tbody>
             </table>

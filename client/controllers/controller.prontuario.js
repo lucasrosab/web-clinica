@@ -1,8 +1,8 @@
 app.controller('ProntuarioCtrl', function($scope){
 
     M.AutoInit();
-
-    $scope.prontuario = [{
+    $scope.prontuario = {};
+    $scope.prontuarios = [{
         codigo: 0,
         nome: 'Lucas',
         cpf: '123456789-11',
@@ -19,6 +19,25 @@ app.controller('ProntuarioCtrl', function($scope){
 
     $scope.cadastrarProntuario = function () {
         $scope.prontuarioCadastrado = false;
+        if($scope.prontuario.nome == null || $scope.prontuario.nome == "" ){
+            M.toast({html: 'Insira o Nome do Paciente', classes: 'rounded red'})
+        } else if($scope.prontuario.codigo == null || $scope.prontuario.codigo == ""){
+            M.toast({html: 'Insira o Codigo', classes: 'rounded red'})
+        } else if($scope.prontuario.data == null || $scope.prontuario.data == ""){
+            M.toast({html: 'Insira a Data da Consulta', classes: 'rounded red'})
+        } else if($scope.prontuario.hora == null || $scope.prontuario.hora == ""){
+            M.toast({html: 'Insira a Hora da Consulta', classes: 'rounded red'})
+        } else if($scope.prontuario.relato == null || $scope.prontuario.relato == ""){
+            M.toast({html: 'Insira o Relato do Paciente', classes: 'rounded red'})
+        } else if($scope.prontuario.analise == null || $scope.prontuario.analise == ""){
+            M.toast({html: 'Selecione a Análise', classes: 'rounded red'})
+        } else{
+            M.toast({html: 'Cadastrado com Sucesso', classes: 'rounded green'})
+            console.log($scope.prontuario)
+            $scope.prontuarios.push($scope.prontuario)
+            $scope.prontuario = {}
+
+
         /*$http({
             method : "POST",
             url : "localhost:8000/prontuarios",
