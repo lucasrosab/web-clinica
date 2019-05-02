@@ -36,3 +36,7 @@ body{
 #funcionarios{
     display: none;
 }
+
+#tela-login{
+    padding: 20px;
+}
