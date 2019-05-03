@@ -38,7 +38,7 @@
       <label for="numero">Numero</label>
     </div>
     <div class="input-field col s12 m3">
-      <input id="cidade" type="email" class="validate" ng-model="paciente.cidade"/>
+      <input id="cidade" type="text" class="validate" ng-model="paciente.cidade"/>
       <label for="cidade">Cidade</label>
     </div>
     <div class="input-field col s12 m3">
@@ -68,30 +68,28 @@
       <label for="usuario">Usuario</label>
     </div>
     <div class="input-field col s12 m6">
-      <input id="senha" type="password" class="validate" ng-model="paciente.sh.usuario"/>
+      <input id="senha" type="password" class="validate" ng-model="paciente.sh_usuario"/>
       <label for="senha">Senha</label>
     </div>  
-    <div class="input-field col s12 direita">
+    <div class="input-field col s12 m10 direita">
       <button class="btn waves-effect waves-light" type="submit" ng-click="estado()" id="botao">Consultar</button>
+    </div>
+    <div class="input-field col s12 m1 direita">
       <button class="btn waves-effect waves-light" type="submit" ng-click="cadastrarPaciente()">Salvar</button>
     </div>
   </form>
-  <div class="col s12" id="pacientes">
+  <div class="col s12 m12" id="pacientes">
     <table>
       <thead>
-        <th>Código</th>
         <th>Nome</th>
-        <th>Sobrenome</th>
         <th>Data de Nascimento</th>
         <th>CPF</th>
         <th>Opções</th>
       </thead>  
       <tbody>
         <tr ng-repeat = "paciente in pacientes">
-          <td>{{paciente.codigo}}</td>
-          <td>{{paciente.nome}}</td>
-          <td>{{paciente.sobrenome}}</td>
-          <td>{{paciente.dtnasc}}</td>
+          <td>{{paciente.no_pessoa}}</td>
+          <td>{{paciente.dt_nasc_pessoa}}</td>
           <td>{{paciente.cpf}}</td>
           <td>
             <button class="btn waves-effect waves-light" type="submit" ng-click="editarPaciente()">Editar</button>

@@ -41,28 +41,35 @@ app.controller('PacienteCtrl', function($scope, $http){
 
     $scope.cadastrarPaciente = function(){ 
         $scope.pacienteCadastrado = false;     
-
-        // TROCAR O NOME DOS ATRIBUTOS LÁ NO NG-MODELS DOS INPUTS E AQUI
-        if($scope.paciente.nome == null || $scope.paciente.nome == ""){
+        //Validação dos Campos
+        if($scope.paciente.no_pessoa == null || $scope.paciente.no_pessoa == ""){
             M.toast({html: 'Insira o Nome', classes: 'rounded red'})
-        } else if($scope.paciente.sobrenome == null || $scope.paciente.sobrenome == ""){
-            M.toast({html: 'Insira o Sobrenome', classes: 'rounded red'})
-        } else if($scope.paciente.dtnasc == null || $scope.paciente.dtnasc == ""){
-            M.toast({html: 'Insira a Data de Nascimento', classes: 'rounded red'})
-        } else if($scope.paciente.cpf == null || $scope.paciente.cpf == ""){
+        } else if($scope.paciente.rg_pessoa == null || $scope.paciente.rg_pessoa == ""){
+            M.toast({html: 'Insira o RG', classes: 'rounded red'})
+        } else if($scope.paciente.cpf_pessoa == null || $scope.paciente.cpf_pessoa == ""){
             M.toast({html: 'Insira o CPF', classes: 'rounded red'})
-        } else if($scope.paciente.plano == null || $scope.paciente.plano == ""){
-            M.toast({html: 'Selecione o Plano de Saúde', classes: 'rounded red'})
+        } else if($scope.paciente.dt_nasc_pessoa == null || $scope.paciente.dt_nasc_pessoa == ""){
+            M.toast({html: 'Insira a Data de Nascimento', classes: 'rounded red'})
+        } else if($scope.paciente.tp_sangui_pessoa == null || $scope.paciente.tp_sangui_pessoa == ""){
+            M.toast({html: 'Selecione o Tipo Sanguineo', classes: 'rounded red'})
         } else if($scope.paciente.endereco == null || $scope.paciente.endereco == ""){
             M.toast({html: 'Insira o Endereço', classes: 'rounded red'})
+        } else if($scope.paciente.numero == null || $scope.paciente.numero == ""){
+            M.toast({html: 'Insira o Numero', classes: 'rounded red'})
         } else if($scope.paciente.cidade == null || $scope.paciente.cidade == ""){
             M.toast({html: 'Insira a Cidade', classes: 'rounded red'})
-        } else if($scope.paciente.uf == null || $scope.paciente.uf == ""){
+        }else if($scope.paciente.uf == null || $scope.paciente.uf == ""){
             M.toast({html: 'Insira o UF', classes: 'rounded red'})
-        }else if($scope.paciente.telefone == null || $scope.paciente.telefone == ""){
-            M.toast({html: 'Insira o Telefone', classes: 'rounded red'})
-        }else if($scope.paciente.email == null || $scope.paciente.email == ""){
-            M.toast({html: 'Insira o Email', classes: 'rounded red'})
+        }else if($scope.paciente.bairro == null || $scope.paciente.bairro == ""){
+            M.toast({html: 'Insira o Bairro', classes: 'rounded red'})
+        }else if($scope.paciente.de_contato == null || $scope.paciente.de_contato == ""){
+            M.toast({html: 'Insira o Contato', classes: 'rounded red'})
+        }else if($scope.paciente.de_paciente == null || $scope.paciente.de_paciente == ""){
+            M.toast({html: 'Insira a Observação', classes: 'rounded red'})
+        }else if($scope.paciente.no_usuario == null || $scope.paciente.no_usuario == ""){
+            M.toast({html: 'Insira o Usuario', classes: 'rounded red'})
+        }else if($scope.paciente.sh_usuario == null || $scope.paciente.sh_usuario == ""){
+            M.toast({html: 'Insira a Senha', classes: 'rounded red'})
         }else{
             M.toast({html: 'Cadastrado com Sucesso', classes: 'rounded green'})
 
@@ -88,7 +95,6 @@ app.controller('PacienteCtrl', function($scope, $http){
 
     }
 
-
     // Esta função vai retornar um json e alimentar o $scope.paciente, que será exibido em uma tabela atraves de um Ng-Repeat
     function exibirPaciente(){
         $http({
@@ -101,6 +107,6 @@ app.controller('PacienteCtrl', function($scope, $http){
           });
     }
 
-
+    exibirPaciente();
     
 })
