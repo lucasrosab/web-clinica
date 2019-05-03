@@ -50,15 +50,15 @@ exports.inserir = async (params) => {
 
         const paciente = params.paciente;
 
-        if (!paciente.nome) {
+        if (!paciente.no_pessoa) {
             return 'Informe o nome do paciente';
         }
         
-        if (!paciente.cpf) {
+        if (!paciente.cpf_pessoa) {
             return 'Informe o CPF do paciente';
         }
 
-        if (!paciente.dt_nasc) {
+        if (!paciente.dt_nasc_pessoa) {
             return 'Informe a Data de Nascimento';
         }
 
@@ -71,18 +71,18 @@ exports.inserir = async (params) => {
         }
 
         paciente.dt_cadastro = new Date();
-        paciente.tp_sangui = !paciente.tp_sangui ? null : paciente.tp_sangui
+        paciente.tp_sangui_pessoa = !paciente.tp_sangui_pessoa ? null : paciente.tp_sangui_pessoa
         
         conn = await db.conn();
 
         // pessoa
         const sql_pessoa = pessoaModel.insertSql;
         const sql_pessoa_params = [
-            paciente.nome, 
-            paciente.rg, 
-            paciente.cpf, 
-            paciente.dt_nasc,
-            paciente.tp_sangui,
+            paciente.no_pessoa, 
+            paciente.rg_pessoa, 
+            paciente.cpf_pessoa, 
+            paciente.dt_nasc_pessoa,
+            paciente.tp_sangui_pessoa,
             paciente.dt_cadastro,
             paciente.no_usuario,
             paciente.sh_usuario];
@@ -124,7 +124,7 @@ exports.inserir = async (params) => {
         
         await conn.query('COMMIT'); // Encerra a transação
 
-        return { cod_paciente: res_paciente.rows[0].cod_paciente };
+        return 'O paciente foi cadastrado';
     } catch (err) {
         await conn.query('ROLLBACK');
         console.error(err);

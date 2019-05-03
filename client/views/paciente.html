@@ -82,15 +82,16 @@
     <table>
       <thead>
         <th>Nome</th>
-        <th>Data de Nascimento</th>
+        <th>RG</th>
         <th>CPF</th>
         <th>Opções</th>
       </thead>  
       <tbody>
         <tr ng-repeat = "paciente in pacientes">
+          <td>{{paciente.cod_pessoa}}</td>
           <td>{{paciente.no_pessoa}}</td>
-          <td>{{paciente.dt_nasc_pessoa}}</td>
-          <td>{{paciente.cpf}}</td>
+          <td>{{paciente.rg_pessoa}}</td>
+          <td>{{paciente.cpf_pessoa}}</td>
           <td>
             <button class="btn waves-effect waves-light" type="submit" ng-click="editarPaciente()">Editar</button>
             <button class="btn waves-effect waves-light" type="submit" ng-click="excluirPaciente()">Excluir</button>
